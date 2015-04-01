@@ -16,7 +16,11 @@
 @property (nonatomic, readonly) id<UITableViewDelegate> delegatet;
 @property (nonatomic, readonly) id<UITableViewDataSource> dataSourcet;
 
+
 @property (nonatomic, assign) float pullOffset;
+
+
+@property (nonatomic, assign)float startPullOffset;
 
 - (UITableView *)tableViewStyle;
 - (UICollectionView *)collectionViewStyle:(UICollectionViewLayout *)layout;
