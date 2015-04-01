@@ -7,62 +7,62 @@
 //
 
 #import "FWComplexTableView+Delegate.h"
-#define Excute_Filter(A)                         \
-  if ([self.delegatet respondsToSelector:_cmd]) { \
-    A;                                           \
+#define Excute_Filter(A)                                                       \
+  if ([self.delegatet respondsToSelector:_cmd]) {                              \
+    A;                                                                         \
   }
 @implementation FWComplexTableView (Delegate)
 - (void)tableView:(UITableView *)tableView
       willDisplayCell:(UITableViewCell *)cell
     forRowAtIndexPath:(NSIndexPath *)indexPath {
   Excute_Filter([self.delegatet tableView:tableView
-                         willDisplayCell:cell
-                       forRowAtIndexPath:indexPath]);
+                          willDisplayCell:cell
+                        forRowAtIndexPath:indexPath]);
 }
 - (void)tableView:(UITableView *)tableView
     willDisplayHeaderView:(UIView *)view
                forSection:(NSInteger)section {
   Excute_Filter([self.delegatet tableView:tableView
-                   willDisplayHeaderView:view
-                              forSection:section]);
+                    willDisplayHeaderView:view
+                               forSection:section]);
 }
 - (void)tableView:(UITableView *)tableView
     willDisplayFooterView:(UIView *)view
                forSection:(NSInteger)section {
   Excute_Filter([self.delegatet tableView:tableView
-                   willDisplayFooterView:view
-                              forSection:section])
+                    willDisplayFooterView:view
+                               forSection:section])
 }
 - (void)tableView:(UITableView *)tableView
     didEndDisplayingCell:(UITableViewCell *)cell
        forRowAtIndexPath:(NSIndexPath *)indexPath {
   Excute_Filter([self.delegatet tableView:tableView
-                    didEndDisplayingCell:cell
-                       forRowAtIndexPath:indexPath]);
+                     didEndDisplayingCell:cell
+                        forRowAtIndexPath:indexPath]);
 }
 - (void)tableView:(UITableView *)tableView
     didEndDisplayingHeaderView:(UIView *)view
                     forSection:(NSInteger)section {
   Excute_Filter([self.delegatet tableView:tableView
-              didEndDisplayingHeaderView:view
-                              forSection:section]);
+               didEndDisplayingHeaderView:view
+                               forSection:section]);
 }
 - (void)tableView:(UITableView *)tableView
     didEndDisplayingFooterView:(UIView *)view
                     forSection:(NSInteger)section {
   Excute_Filter([self.delegatet tableView:tableView
-              didEndDisplayingFooterView:view
-                              forSection:section]);
+               didEndDisplayingFooterView:view
+                               forSection:section]);
 }
 //
 //// Variable height support
 //
 //
 //// Use the estimatedHeight methods to quickly calcuate guessed values which
-///will allow for fast load times of the table.
+/// will allow for fast load times of the table.
 //// If these methods are implemented, the above -tableView:heightForXXX calls
-///will be deferred until views are ready to be displayed, so more expensive
-///logic can be placed there.
+/// will be deferred until views are ready to be displayed, so more expensive
+/// logic can be placed there.
 
 //- (CGFloat)tableView:(UITableView *)tableView
 //    estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,7 +84,7 @@
 //}
 //
 //// Section header & footer information. Views are preferred over title should
-///you decide to provide both
+/// you decide to provide both
 //
 
 //
@@ -99,9 +99,10 @@
 //// Selection
 //
 //// -tableView:shouldHighlightRowAtIndexPath: is called when a touch comes down
-///on a row.
+/// on a row.
 //// Returning NO to that message halts the selection process and does not cause
-///the currently selected row to lose its selected look while the touch is down.
+/// the currently selected row to lose its selected look while the touch is
+/// down.
 - (BOOL)tableView:(UITableView *)tableView
     shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
   Excute_Filter(return
@@ -110,9 +111,8 @@
 }
 - (void)tableView:(UITableView *)tableView
     didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-  Excute_Filter(
-      return
-      [self.delegatet tableView:tableView didHighlightRowAtIndexPath:indexPath];)
+  Excute_Filter(return [self.delegatet tableView:tableView
+                           didHighlightRowAtIndexPath:indexPath];)
 }
 - (void)tableView:(UITableView *)tableView
     didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -121,7 +121,7 @@
 }
 //
 //// Called before the user changes the selection. Return a new indexPath, or
-///nil, to change the proposed selection.
+/// nil, to change the proposed selection.
 - (NSIndexPath *)tableView:(UITableView *)tableView
     willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   Excute_Filter(return

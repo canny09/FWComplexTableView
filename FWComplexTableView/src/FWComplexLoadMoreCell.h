@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @class FWComplexViewHandler;
-typedef NS_ENUM(NSInteger, FWComplexLoadMoreState){
-    FWComplexLoadMoreStateNormal,
-    FWComplexLoadMoreStateDragging,
-    FWComplexLoadMoreStateDragged
+typedef NS_ENUM(NSInteger, FWComplexLoadMoreState) {
+  FWComplexLoadMoreStateNormal,
+  FWComplexLoadMoreStateDragging,
+  FWComplexLoadMoreStateDragged
 };
 
 @interface FWComplexLoadMoreCell : UITableViewCell
-@property (nonatomic,assign)FWComplexLoadMoreState state;
-@property (nonatomic,strong)FWComplexViewHandler *viewHandler;
+@property (nonatomic, assign) FWComplexLoadMoreState state;
+@property (nonatomic, strong) FWComplexViewHandler *viewHandler;
 + (float)height;
 @end

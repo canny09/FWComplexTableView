@@ -9,19 +9,18 @@
 #import "FWComplexViewHandler.h"
 
 @implementation FWComplexViewHandler
-- (void)setView:(UIView *)view{
-    _view = view;
-    [self afterView:_view];
+- (void)setView:(UIView *)view {
+  _view = view;
+  [self afterView:_view];
 }
-- (void)loadMoreChangeState:(FWComplexLoadMoreState)state view:(FWComplexLoadMoreCell *)loadMoreCell{
-    
-}
-
-- (void)pullDownChangeState:(FWPullDownViewState)state view:(FWPullDownView *)pullDownView{
-    
+- (void)loadMoreChangeState:(FWComplexLoadMoreState)state
+                       view:(FWComplexLoadMoreCell *)loadMoreCell {
 }
 
-- (void)afterView:(UIView *)view{
-    
+- (void)pullDownChangeState:(FWPullDownViewState)state
+                       view:(FWPullDownView *)pullDownView {
+}
+
+- (void)afterView:(UIView *)view {
 }
 @end

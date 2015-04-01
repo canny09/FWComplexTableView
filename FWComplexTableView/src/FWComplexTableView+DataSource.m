@@ -7,9 +7,9 @@
 //
 
 #import "FWComplexTableView+DataSource.h"
-#define Excute_Filter(A)                         \
-  if ([self.dataSourcet respondsToSelector:_cmd]) { \
-    A;                                           \
+#define Excute_Filter(A)                                                       \
+  if ([self.dataSourcet respondsToSelector:_cmd]) {                            \
+    A;                                                                         \
   }
 @implementation FWComplexTableView (DataSource)
 
@@ -28,22 +28,22 @@
 //// Editing
 //
 //// Individual rows can opt out of having the -editing property set for them.
-///If not implemented, all rows are assumed to be editable.
+/// If not implemented, all rows are assumed to be editable.
 - (BOOL)tableView:(UITableView *)tableView
     canEditRowAtIndexPath:(NSIndexPath *)indexPath {
   Excute_Filter(return [self.dataSourcet tableView:tableView
-                            canEditRowAtIndexPath:indexPath];) return NO;
+                             canEditRowAtIndexPath:indexPath];) return NO;
 }
 //
 //// Moving/reordering
 //
 //// Allows the reorder accessory view to optionally be shown for a particular
-///row. By default, the reorder control will be shown only if the datasource
-///implements -tableView:moveRowAtIndexPath:toIndexPath:
+/// row. By default, the reorder control will be shown only if the datasource
+/// implements -tableView:moveRowAtIndexPath:toIndexPath:
 - (BOOL)tableView:(UITableView *)tableView
     canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
   Excute_Filter(return [self.dataSourcet tableView:tableView
-                            canMoveRowAtIndexPath:indexPath];) return NO;
+                             canMoveRowAtIndexPath:indexPath];) return NO;
 }
 //
 //// Index
@@ -64,16 +64,16 @@
 //// Data manipulation - insert and delete support
 //
 //// After a row has the minus or plus button invoked (based on the
-///UITableViewCellEditingStyle for the cell), the dataSource must commit the
-///change
+/// UITableViewCellEditingStyle for the cell), the dataSource must commit the
+/// change
 //// Not called for edit actions using UITableViewRowAction - the action's
-///handler will be invoked instead
+/// handler will be invoked instead
 - (void)tableView:(UITableView *)tableView
     commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
      forRowAtIndexPath:(NSIndexPath *)indexPath {
   Excute_Filter([self.dataSourcet tableView:tableView
-                        commitEditingStyle:editingStyle
-                         forRowAtIndexPath:indexPath];)
+                         commitEditingStyle:editingStyle
+                          forRowAtIndexPath:indexPath];)
 }
 //
 //// Data manipulation - reorder / moving support
@@ -82,7 +82,7 @@
     moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
            toIndexPath:(NSIndexPath *)destinationIndexPath {
   Excute_Filter([self.dataSourcet tableView:tableView
-                        moveRowAtIndexPath:sourceIndexPath
-                               toIndexPath:destinationIndexPath])
+                         moveRowAtIndexPath:sourceIndexPath
+                                toIndexPath:destinationIndexPath])
 }
 @end

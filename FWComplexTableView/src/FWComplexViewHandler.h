@@ -12,9 +12,10 @@
 #import "FWPullDownView.h"
 
 @interface FWComplexViewHandler : NSObject
-@property (nonatomic,weak)UIView  *view;
+@property (nonatomic, weak) UIView *view;
 
-
-- (void)loadMoreChangeState:(FWComplexLoadMoreState)state view:(FWComplexLoadMoreCell *)loadMoreCell;
-- (void)pullDownChangeState:(FWPullDownViewState)state view:(FWPullDownView *)pullDownView;
+- (void)loadMoreChangeState:(FWComplexLoadMoreState)state
+                       view:(FWComplexLoadMoreCell *)loadMoreCell;
+- (void)pullDownChangeState:(FWPullDownViewState)state
+                       view:(FWPullDownView *)pullDownView;
 @end

@@ -11,14 +11,12 @@
 #import "FWUndergroundCell.h"
 
 @interface FWComplexTableView : UITableView {
-    
 }
 
-@property(nonatomic, readonly) id<UITableViewDelegate> delegatet;
-@property(nonatomic, readonly) id<UITableViewDataSource> dataSourcet;
+@property (nonatomic, readonly) id<UITableViewDelegate> delegatet;
+@property (nonatomic, readonly) id<UITableViewDataSource> dataSourcet;
 
-@property( nonatomic,assign) float pullOffset;
-
+@property (nonatomic, assign) float pullOffset;
 
 - (UITableView *)tableViewStyle;
 - (UICollectionView *)collectionViewStyle:(UICollectionViewLayout *)layout;
