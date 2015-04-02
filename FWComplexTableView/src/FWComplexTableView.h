@@ -18,8 +18,6 @@
 
 
 @property (nonatomic, assign) float pullOffset;
-
-
 @property (nonatomic, assign)float startPullOffset;
 
 - (UITableView *)tableViewStyle;

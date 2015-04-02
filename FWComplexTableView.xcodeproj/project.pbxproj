@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44C7062E1ACD43180086EA3A /* UITableView+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7062B1ACD43180086EA3A /* UITableView+Adapter.m */; };
+		44C7062F1ACD43180086EA3A /* FWTableViewAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C7062D1ACD43180086EA3A /* FWTableViewAdapter.m */; };
+		44C706321ACD43900086EA3A /* UnderGroundAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C706311ACD43900086EA3A /* UnderGroundAdapter.m */; };
 		44CC8CD31ABAB62C00CE8C9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CC8CD21ABAB62C00CE8C9B /* main.m */; };
 		44CC8CD61ABAB62C00CE8C9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CC8CD51ABAB62C00CE8C9B /* AppDelegate.m */; };
 		44CC8CD91ABAB62C00CE8C9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CC8CD81ABAB62C00CE8C9B /* ViewController.m */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44C7062A1ACD43180086EA3A /* UITableView+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Adapter.h"; sourceTree = "<group>"; };
+		44C7062B1ACD43180086EA3A /* UITableView+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Adapter.m"; sourceTree = "<group>"; };
+		44C7062C1ACD43180086EA3A /* FWTableViewAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FWTableViewAdapter.h; sourceTree = "<group>"; };
+		44C7062D1ACD43180086EA3A /* FWTableViewAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FWTableViewAdapter.m; sourceTree = "<group>"; };
+		44C706301ACD43900086EA3A /* UnderGroundAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnderGroundAdapter.h; sourceTree = "<group>"; };
+		44C706311ACD43900086EA3A /* UnderGroundAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnderGroundAdapter.m; sourceTree = "<group>"; };
 		44CC8CCD1ABAB62C00CE8C9B /* FWComplexTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWComplexTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44CC8CD11ABAB62C00CE8C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44CC8CD21ABAB62C00CE8C9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +119,12 @@
 				44CC8CD51ABAB62C00CE8C9B /* AppDelegate.m */,
 				44CC8CD71ABAB62C00CE8C9B /* ViewController.h */,
 				44CC8CD81ABAB62C00CE8C9B /* ViewController.m */,
+				44C7062A1ACD43180086EA3A /* UITableView+Adapter.h */,
+				44C7062B1ACD43180086EA3A /* UITableView+Adapter.m */,
+				44C7062C1ACD43180086EA3A /* FWTableViewAdapter.h */,
+				44C7062D1ACD43180086EA3A /* FWTableViewAdapter.m */,
+				44C706301ACD43900086EA3A /* UnderGroundAdapter.h */,
+				44C706311ACD43900086EA3A /* UnderGroundAdapter.m */,
 				44CC8CDA1ABAB62C00CE8C9B /* Main.storyboard */,
 				44CC8CDD1ABAB62C00CE8C9B /* Images.xcassets */,
 				44CC8CDF1ABAB62C00CE8C9B /* LaunchScreen.xib */,
@@ -272,10 +287,13 @@
 				44CC8D0E1ABAB64700CE8C9B /* FWUndergroundCell.m in Sources */,
 				44CC8D0A1ABAB64700CE8C9B /* FWComplexTableView+ScrollDelegate.m in Sources */,
 				44CC8D081ABAB64700CE8C9B /* FWComplexTableView+DataSource.m in Sources */,
+				44C7062E1ACD43180086EA3A /* UITableView+Adapter.m in Sources */,
 				44CC8D091ABAB64700CE8C9B /* FWComplexTableView+Delegate.m in Sources */,
+				44C7062F1ACD43180086EA3A /* FWTableViewAdapter.m in Sources */,
 				44CC8D0C1ABAB64700CE8C9B /* FWComplexViewHandler.m in Sources */,
 				44CC8CD61ABAB62C00CE8C9B /* AppDelegate.m in Sources */,
 				44CC8D071ABAB64700CE8C9B /* FWComplexLoadMoreCell.m in Sources */,
+				44C706321ACD43900086EA3A /* UnderGroundAdapter.m in Sources */,
 				44CC8CD31ABAB62C00CE8C9B /* main.m in Sources */,
 				44CC8D0B1ABAB64700CE8C9B /* FWComplexTableView.m in Sources */,
 			);
@@ -468,6 +486,7 @@
 				44CC8CF21ABAB62C00CE8C9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44CC8CF31ABAB62C00CE8C9B /* Build configuration list for PBXNativeTarget "FWComplexTableViewTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +495,7 @@
 				44CC8CF51ABAB62C00CE8C9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

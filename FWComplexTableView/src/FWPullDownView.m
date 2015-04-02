@@ -23,6 +23,9 @@
         [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height - 30,
                                                   frame.size.width, 30)];
     [self addSubview:_textLabel];
+      
+      _state = -1;
+      [self setState:FWPullDownViewStateNormal];
   }
   return self;
 }
@@ -39,11 +42,11 @@
   _state = state;
 
   if (state == FWPullDownViewStateNormal) {
-    [_textLabel setText:@"下拉刷新更多"];
+    [_textLabel setText:NSLocalizedString(@"FWPullDownViewStateNormal", nil)];
   } else if (state == FWPullDownViewStateDragged) {
-    [_textLabel setText:@"我来了"];
+    [_textLabel setText:NSLocalizedString(@"FWPullDownViewStateDragged", nil)];
   } else if (state == FWPullDownViewStateDragging) {
-    [_textLabel setText:@"松开加载更多"];
+    [_textLabel setText:NSLocalizedString(@"FWPullDownViewStateDragging", nil)];
   }
   [_viewHandler pullDownChangeState:_state view:self];
 }

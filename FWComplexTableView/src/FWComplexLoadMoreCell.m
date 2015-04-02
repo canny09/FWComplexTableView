@@ -19,9 +19,10 @@
               reuseIdentifier:(NSString *)reuseIdentifier {
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
-    [self.textLabel setText:@"loadmore"];
     [self.textLabel setTextColor:[UIColor blackColor]];
     [self.contentView setBackgroundColor:[UIColor yellowColor]];
+      _state = -1;
+    [self setState:FWComplexLoadMoreStateNormal];
   }
   return self;
 }
@@ -30,11 +31,11 @@
     return;
   }
   if (state == FWComplexLoadMoreStateDragged) {
-    [self.textLabel setText:@"FWComplexLoadMoreStateDragged"];
+    [self.textLabel setText:NSLocalizedString(@"FWComplexLoadMoreStateDragged", nil)];
   } else if (state == FWComplexLoadMoreStateDragging) {
-    [self.textLabel setText:@"FWComplexLoadMoreStateDragging"];
+    [self.textLabel setText:NSLocalizedString(@"FWComplexLoadMoreStateDragging", nil)];
   } else {
-    [self.textLabel setText:@"FWComplexLoadMoreStateNormal"];
+    [self.textLabel setText:NSLocalizedString(@"FWComplexLoadMoreStateNormal", nil)];
   }
   _state = state;
   [_viewHandler loadMoreChangeState:_state view:self];
