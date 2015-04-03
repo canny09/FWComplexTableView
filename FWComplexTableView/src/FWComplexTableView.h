@@ -17,9 +17,10 @@
 @property (nonatomic, readonly) id<UITableViewDataSource> dataSourcet;
 
 
-@property (nonatomic, assign) float pullOffset;
+@property (nonatomic, assign)float pullOffset;
 @property (nonatomic, assign)float startPullOffset;
 
+- (void)disablePullUp;
 - (UITableView *)tableViewStyle;
 - (UICollectionView *)collectionViewStyle:(UICollectionViewLayout *)layout;
 - (void)gotop;

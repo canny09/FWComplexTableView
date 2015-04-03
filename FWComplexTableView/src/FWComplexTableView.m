@@ -54,12 +54,21 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
   }
   return self;
 }
+- (void)disablePullUp{
+    _pullOffset = NSIntegerMax;
+    [_loadMoreCell setHidden:YES];
+}
+- (void)setPullOffset:(float)pullOffset{
+    _pullOffset = pullOffset;
+    [_loadMoreCell setHidden:NO];
+}
 - (void)setDelegate:(id<UITableViewDelegate>)delegate {
   self.delegatet = delegate;
 }
 - (void)setDataSource:(id<UITableViewDataSource>)dataSource {
   self.dataSourcet = dataSource;
 }
+
 - (void)reloadData {
   [super reloadData];
 }
