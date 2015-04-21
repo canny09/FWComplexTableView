@@ -25,4 +25,5 @@
 - (UICollectionView *)collectionViewStyle:(UICollectionViewLayout *)layout;
 - (void)gotop;
 - (FWUndergroundCell *)undergroundCell;
+- (FWComplexLoadMoreCell *)loadMoreCell;
 @end

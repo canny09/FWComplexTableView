@@ -78,6 +78,9 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
 - (FWUndergroundCell *)undergroundCell {
   return _undergroundCell;
 }
+- (FWComplexLoadMoreCell *)loadMoreCell{
+    return _loadMoreCell;
+}
 - (void)setContentSize:(CGSize)contentSize {
   if (_lastRowCalulated) {
     contentSize.height -= (_undergroundHeight + [[_loadMoreCell class] height]) - _startPullOffset;
