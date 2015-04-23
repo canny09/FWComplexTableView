@@ -18,7 +18,8 @@
 
 
 @property (nonatomic, assign)float pullOffset;
-@property (nonatomic, assign)float startPullOffset;
+@property (nonatomic, assign)float startScrollingOffset;
+@property (nonatomic, assign)float endScrollingOffset;
 
 - (void)disablePullUp;
 - (UITableView *)tableViewStyle;

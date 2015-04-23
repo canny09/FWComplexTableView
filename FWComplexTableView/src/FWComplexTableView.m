@@ -50,7 +50,7 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
       [me didPullUp];
     }];
     _pullOffset = 50;
-    _startPullOffset = 0;
+    _startScrollingOffset = 0;
   }
   return self;
 }
@@ -83,7 +83,7 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
 }
 - (void)setContentSize:(CGSize)contentSize {
   if (_lastRowCalulated) {
-    contentSize.height -= (_undergroundHeight + [[_loadMoreCell class] height]) - _startPullOffset;
+    contentSize.height -= (_undergroundHeight + [[_loadMoreCell class] height]) - _startScrollingOffset;
     self.contentSizet = contentSize;
   }
   [super setContentSize:contentSize];
@@ -248,7 +248,7 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
     dispatch_async(dispatch_get_main_queue(), ^{
       [scrollView
           setContentOffset:CGPointMake(0, _contentSizet.height +
-                                              [[_loadMoreCell class] height] - _startPullOffset)
+                                              [[_loadMoreCell class] height] - _startScrollingOffset + _endScrollingOffset)
                   animated:YES];
     });
   }
