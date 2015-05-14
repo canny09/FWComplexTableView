@@ -10,13 +10,19 @@
 #import "FWComplexLoadMoreCell.h"
 #import "FWUndergroundCell.h"
 
+typedef NS_ENUM(NSInteger, FWComplexTableViewState) {
+    FWComplexTableViewStateTopShow,
+    FWComplexTableViewStateBottomShow,
+};
+
+
 @interface FWComplexTableView : UITableView {
 }
 
 @property (nonatomic, readonly) id<UITableViewDelegate> delegatet;
 @property (nonatomic, readonly) id<UITableViewDataSource> dataSourcet;
 
-
+@property (nonatomic,copy)void (^didStateChanged)(FWComplexTableView *,FWComplexTableViewState);
 @property (nonatomic, assign)float pullOffset;
 @property (nonatomic, assign)float startScrollingOffset;
 @property (nonatomic, assign)float endScrollingOffset;

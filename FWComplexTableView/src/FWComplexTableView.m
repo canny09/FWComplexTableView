@@ -74,6 +74,10 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
 }
 - (void)gotop {
   [self setContentOffset:CGPointMake(0, 0) animated:YES];
+  self.scrollEnabled = YES;
+  if (_didStateChanged) {
+     _didStateChanged(self,FWComplexTableViewStateTopShow);
+  }
 }
 - (FWUndergroundCell *)undergroundCell {
   return _undergroundCell;
@@ -107,6 +111,9 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
 - (void)didPullUp {
   [self setContentOffset:CGPointZero animated:YES];
   [self setScrollEnabled:YES];
+  if (_didStateChanged) {
+        _didStateChanged(self,FWComplexTableViewStateTopShow);
+  }
 }
 - (BOOL)isLoadMoreViewCell:(NSIndexPath *)indexPath {
   if (indexPath.section == _numberOfSecions - 2) {
@@ -250,6 +257,9 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
           setContentOffset:CGPointMake(0, _contentSizet.height +
                                               [[_loadMoreCell class] height] - _startScrollingOffset + _endScrollingOffset)
                   animated:YES];
+        if (_didStateChanged) {
+            _didStateChanged(self,FWComplexTableViewStateBottomShow);
+        }
     });
   }
   if ([self.delegatet respondsToSelector:_cmd]) {
