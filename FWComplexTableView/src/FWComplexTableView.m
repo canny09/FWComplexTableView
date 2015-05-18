@@ -24,9 +24,12 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
 @property (nonatomic, assign) BOOL lastRowCalulated;
 
 @property (nonatomic, assign) CGSize contentSizet;
+@property (nonatomic, assign) CGSize originalSize;
 
 @property (nonatomic, strong) UIScrollView *undergroundScrollView;
 
+
+@property (nonatomic,assign)FWComplexTableViewState state;
 @end
 
 @implementation FWComplexTableView
@@ -73,11 +76,26 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
   [super reloadData];
 }
 - (void)gotop {
-  [self setContentOffset:CGPointMake(0, 0) animated:YES];
-  self.scrollEnabled = YES;
-  if (_didStateChanged) {
-     _didStateChanged(self,FWComplexTableViewStateTopShow);
-  }
+    [self setContentOffset:CGPointZero animated:YES];
+    [self setScrollEnabled:YES];
+    _state = FWComplexTableViewStateTopShow;
+    if (_didStateChanged) {
+        _didStateChanged(self,FWComplexTableViewStateTopShow);
+    }
+}
+- (void)showUnderGround{
+    [self setScrollEnabled:NO];
+    [_loadMoreCell setState:FWComplexLoadMoreStateDragged];
+    _state = FWComplexTableViewStateBottomShow;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self
+         setContentOffset:CGPointMake(0, _contentSizet.height +
+                                      [[_loadMoreCell class] height] - _startScrollingOffset + _endScrollingOffset)
+         animated:YES];
+        if (_didStateChanged) {
+            _didStateChanged(self,FWComplexTableViewStateBottomShow);
+        }
+    });
 }
 - (FWUndergroundCell *)undergroundCell {
   return _undergroundCell;
@@ -86,6 +104,7 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
     return _loadMoreCell;
 }
 - (void)setContentSize:(CGSize)contentSize {
+  self.originalSize = contentSize;
   if (_lastRowCalulated) {
     contentSize.height -= (_undergroundHeight + [[_loadMoreCell class] height]) - _startScrollingOffset;
     self.contentSizet = contentSize;
@@ -109,12 +128,9 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
 }
 
 - (void)didPullUp {
-  [self setContentOffset:CGPointZero animated:YES];
-  [self setScrollEnabled:YES];
-  if (_didStateChanged) {
-        _didStateChanged(self,FWComplexTableViewStateTopShow);
-  }
+    [self gotop];
 }
+
 - (BOOL)isLoadMoreViewCell:(NSIndexPath *)indexPath {
   if (indexPath.section == _numberOfSecions - 2) {
     if (indexPath.row ==
@@ -250,21 +266,20 @@ static NSString *const kLoadMoreCellIdentifier = @"kLoadMoreCellIdentifier";
   }
   if (scrollView.contentOffset.y >
       _contentSizet.height - self.frame.size.height + _pullOffset) {
-    [self setScrollEnabled:NO];
-    [_loadMoreCell setState:FWComplexLoadMoreStateDragged];
-    dispatch_async(dispatch_get_main_queue(), ^{
-      [scrollView
-          setContentOffset:CGPointMake(0, _contentSizet.height +
-                                              [[_loadMoreCell class] height] - _startScrollingOffset + _endScrollingOffset)
-                  animated:YES];
-        if (_didStateChanged) {
-            _didStateChanged(self,FWComplexTableViewStateBottomShow);
-        }
-    });
+    [self showUnderGround];
   }
   if ([self.delegatet respondsToSelector:_cmd]) {
     [self.delegatet scrollViewDidEndDragging:scrollView
                               willDecelerate:decelerate];
   }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    if (_state == FWComplexTableViewStateBottomShow) {
+        [super setContentSize:_originalSize];
+    }
+    if (_state == FWComplexTableViewStateTopShow) {
+        [super setContentSize:_contentSizet];
+    }
 }
 @end

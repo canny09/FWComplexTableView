@@ -32,9 +32,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
   Excute_Filter([self.delegatet scrollViewDidEndDecelerating:scrollView];)
 }
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-  Excute_Filter([self.delegatet scrollViewDidEndScrollingAnimation:scrollView];)
-}
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
   Excute_Filter(
       return

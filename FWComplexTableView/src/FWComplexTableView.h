@@ -26,6 +26,8 @@ typedef NS_ENUM(NSInteger, FWComplexTableViewState) {
 @property (nonatomic, assign)float pullOffset;
 @property (nonatomic, assign)float startScrollingOffset;
 @property (nonatomic, assign)float endScrollingOffset;
+@property (nonatomic, assign,readonly)FWComplexTableViewState state;
+
 
 - (void)disablePullUp;
 - (UITableView *)tableViewStyle;
